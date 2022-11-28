@@ -1,5 +1,5 @@
 const Trailers = () => {
-  return <div>Trailers</div>;
+  return <div className="display">Trailers</div>;
 };
 
 export default Trailers;

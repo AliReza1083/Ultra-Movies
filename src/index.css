@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @apply bg-background text-white;
+}
+
+.nav__links {
+  @apply relative text-3xl p-3 rounded-xl inline-block hover:bg-[#121212] hover:text-secondary duration-200;
+}
+@media (min-width: 992px) {
+  .nav__links::after {
+    @apply bg-background_2;
+    content: attr(data-links);
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    color: white;
+    white-space: nowrap;
+    font-size: 18px;
+    padding: 0.4em 1em;
+    border-radius: 0.4em;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: 0.2s;
+  }
+  .nav__links:hover::after {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
+
+.display {
+  width: calc(100% - 80px);
+  background-color: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
