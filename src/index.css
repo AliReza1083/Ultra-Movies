@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
 body {
   @apply bg-background text-white;
+  font-family: "Roboto", sans-serif;
 }
 
 .nav__links {
-  @apply relative text-3xl p-3 rounded-xl inline-block hover:bg-[#121212] hover:text-secondary duration-200;
+  @apply relative text-3xl p-3 rounded-xl inline-block hover:bg-[#121212] hover:text-secondary duration-200 active:scale-90;
 }
 @media (min-width: 992px) {
   .nav__links::after {
@@ -34,8 +37,8 @@ body {
 
 .display {
   width: calc(100% - 80px);
-  background-color: red;
   position: absolute;
   top: 0;
   right: 0;
+  z-index: -1;
 }
