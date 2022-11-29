@@ -1,21 +1,21 @@
 import { db } from "../utils/Add";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const Add = () => {
   const colRef = collection(db, "movies");
 
   const addingData = (e) => {
     e.preventDefault();
-    const createdAt = new Date();
+    const { name, country, year, img, trailer, details } = e.target;
 
     addDoc(colRef, {
-      name: e.target.name.value,
-      country: e.target.country.value,
-      year: e.target.year.valueAsNumber,
-      img: e.target.img.value,
-      trailer: e.target.trailer.value,
-      details: e.target.details.value,
-      createdAt: createdAt,
+      name: name.value,
+      country: country.value,
+      year: year.valueAsNumber,
+      img: img.value,
+      trailer: trailer.value,
+      details: details.value,
+      createdAt: serverTimestamp(),
     }).then(() => {
       console.log("added");
     });
