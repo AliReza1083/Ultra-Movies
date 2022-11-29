@@ -1,8 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-[#121212] hover:bg-opacity-[.8] rounded-full;
+}
 
 body {
   @apply bg-background text-white;
@@ -41,4 +48,19 @@ body {
   top: 0;
   right: 0;
   z-index: -1;
+  transition: 0.2s;
 }
+@media (max-width: 768px) {
+  .display {
+    width: 100%;
+  }
+}
+
+#movie:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.396);
+}
+
+/* #movie:hover > div:first-child {
+  transform: scale(0.95);
+} */

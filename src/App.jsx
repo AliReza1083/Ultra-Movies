@@ -1,20 +1,33 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 
-import Navbar from "./components/Navbar";
-import { Home, Movies, Date, Trailers, Add, Info } from "./routes";
+import Navbar from "./components/Navbar/Navbar";
+import {
+  Home,
+  Movies,
+  Date,
+  Trailers,
+  Add,
+  Info,
+  Authentication,
+} from "./routes";
 
 function App() {
+  const location = useLocation();
   return (
-    <Routes>
-      <Route path="/" element={<Navbar />}>
-        <Route index element={<Home />}></Route>
-        <Route path="movies" element={<Movies />}></Route>
-        <Route path="date" element={<Date />}></Route>
-        <Route path="trailers" element={<Trailers />}></Route>
-        <Route path="add-movie" element={<Add />}></Route>
-        <Route path="about" element={<Info />}></Route>
-      </Route>
-    </Routes>
+    <AnimatePresence mode="wait">
+      <Routes key={location.pathname} location={location}>
+        <Route path="/" element={<Navbar />}>
+          <Route index element={<Home />}></Route>
+          <Route path="movies" element={<Movies />}></Route>
+          <Route path="date" element={<Date />}></Route>
+          <Route path="trailers" element={<Trailers />}></Route>
+          <Route path="add-movie" element={<Add />}></Route>
+          <Route path="about" element={<Info />}></Route>
+          <Route path="authentication" element={<Authentication />}></Route>
+        </Route>
+      </Routes>
+    </AnimatePresence>
   );
 }
 
