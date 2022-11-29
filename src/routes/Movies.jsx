@@ -1,21 +1,22 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { db } from "../utils/Add";
+import { collection, onSnapshot } from "firebase/firestore";
 
-import Button from "../components/Button";
 import Movie from "../components/Movie";
 
-import MovieData from "../movies.json";
-
 const Movies = () => {
-  const [dataFilter, setDataFilter] = useState(MovieData);
-  const [searchField, setSearchField] = useState("");
+  const [moviesData, setMoviesData] = useState([]);
+  const colRef = collection(db, "movies");
 
+  // ! Getting Data from Fire Store
   useEffect(() => {
-    const dataFiltering = MovieData.filter((data) => {
-      return data.name.toLowerCase().includes(searchField);
+    onSnapshot(colRef, (snapshot) => {
+      setMoviesData(
+        snapshot.docs.map((movie) => ({ ...movie.data(), id: movie.id }))
+      );
     });
-    setDataFilter(dataFiltering);
-  }, [searchField]);
+  }, []);
 
   return (
     <motion.div
@@ -27,17 +28,14 @@ const Movies = () => {
       <input
         className="bg-background_2 px-4 py-2 outline-none rounded-md"
         type="search"
-        onChange={(e) => setSearchField(e.target.value)}
         placeholder="search"
       />
 
       {/* Movies */}
       <div className="grid grid-cols-6 gap-4 justify-center xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
-        <AnimatePresence>
-          {dataFilter.map((movie) => {
-            return <Movie key={movie.id} variant={movie} />;
-          })}
-        </AnimatePresence>
+        {moviesData.map((movie) => {
+          return <Movie key={movie.id} variant={movie} />;
+        })}
       </div>
     </motion.div>
   );
