@@ -2,7 +2,7 @@ import { db } from "../utils/Add";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const Add = () => {
-  const colRef = collection(db, "movies");
+  const colRef = collection(db, "approve");
 
   const addingData = (e) => {
     e.preventDefault();

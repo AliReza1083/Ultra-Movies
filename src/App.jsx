@@ -10,6 +10,7 @@ import {
   Add,
   Info,
   Authentication,
+  Approve,
 } from "./routes";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="add-movie" element={<Add />}></Route>
           <Route path="about" element={<Info />}></Route>
           <Route path="authentication" element={<Authentication />}></Route>
+          <Route path="private/approve" element={<Approve />}></Route>
         </Route>
       </Routes>
     </AnimatePresence>

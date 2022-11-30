@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { db } from "../utils/Add";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 
-import Movie from "../components/Movie";
+import Movie from "../components/Movie/Movie";
 
 const Movies = () => {
   const [moviesData, setMoviesData] = useState([]);
