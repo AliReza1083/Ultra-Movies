@@ -11,6 +11,7 @@ import {
   Info,
   Authentication,
   Approve,
+  EachMovie,
 } from "./routes";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />}></Route>
           <Route path="movies" element={<Movies />}></Route>
+          <Route path="movies/:id" element={<EachMovie />}></Route>
           <Route path="date" element={<Date />}></Route>
           <Route path="trailers" element={<Trailers />}></Route>
           <Route path="add-movie" element={<Add />}></Route>

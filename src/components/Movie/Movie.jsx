@@ -27,7 +27,7 @@ const Movie = ({ variant }) => {
       <div>
         <h2 className="mt-4">{variant.name}</h2>
         {/* Extra Information */}
-        <div className="flex justify-between my-2">
+        <div className="flex justify-between my-2 text-sm opacity-70">
           <p className="flex gap-2 items-center">
             <BiWorld />
             {variant.country}
