@@ -12,6 +12,7 @@ import {
   Authentication,
   Approve,
   EachMovie,
+  NotFound,
 } from "./routes";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="about" element={<Info />}></Route>
           <Route path="authentication" element={<Authentication />}></Route>
           <Route path="private/approve" element={<Approve />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
         </Route>
       </Routes>
     </AnimatePresence>

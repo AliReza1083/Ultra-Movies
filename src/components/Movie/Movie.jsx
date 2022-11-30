@@ -37,7 +37,7 @@ const Movie = ({ variant }) => {
             {variant.year}
           </p>
         </div>
-        <Button />
+        <Button path={variant.id} />
       </div>
     </motion.div>
   );

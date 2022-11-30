@@ -7,3 +7,4 @@ export { default as Info } from "./About";
 export { default as Authentication } from "./Authentication";
 export { default as Approve } from "./Approve";
 export { default as EachMovie } from "./EachMovie";
+export { default as NotFound } from "./404";

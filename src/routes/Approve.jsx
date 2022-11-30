@@ -56,7 +56,7 @@ const Approve = () => {
   };
 
   return (
-    <div className="display grid grid-cols-5 p-8">
+    <div className="display grid grid-cols-5 p-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 sm:px-4">
       {approveData.map((datas) => {
         return (
           <form

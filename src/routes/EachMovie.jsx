@@ -12,7 +12,7 @@ const EachMovie = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const colRef = collection(db, "movies");
-  const q = query(colRef, where("year", "==", parseInt(id)));
+  const q = query(colRef, where("name", "==", id));
 
   console.log({ id });
 
