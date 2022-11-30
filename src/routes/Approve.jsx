@@ -24,6 +24,7 @@ const Approve = () => {
 
   const addingApprovedData = (e) => {
     e.preventDefault();
+    console.dir(e);
     const { name, country, year, img, trailer, details } = e.target;
     const docRef = doc(db, "approve", e.target.button.value);
 
@@ -47,31 +48,82 @@ const Approve = () => {
       });
   };
 
+  const deletingDoc = (e) => {
+    const docRef = doc(db, "approve", e.target.value);
+    deleteDoc(docRef).then(() => {
+      console.log("Deleted");
+    });
+  };
+
   return (
-    <div className="display">
+    <div className="display grid grid-cols-5 p-8">
       {approveData.map((datas) => {
         return (
           <form
-            action=""
-            className="text-black border-4 border-red-700 p-4"
+            className="flex flex-col gap-4 bg-background_2 rounded-md p-4"
             onSubmit={addingApprovedData}
           >
-            <input type="text" name="name" value={datas.name} readOnly />
-            <input type="text" name="country" value={datas.country} readOnly />
-            <input type="number" name="year" value={datas.year} readOnly />
-            <input type="url" name="img" value={datas.img} readOnly />
-            <input type="url" name="trailer" value={datas.trailer} readOnly />
+            <input
+              className="input"
+              type="text"
+              name="name"
+              value={datas.name}
+              readOnly
+            />
+            <input
+              className="input"
+              type="text"
+              name="country"
+              value={datas.country}
+              readOnly
+            />
+            <input
+              className="input"
+              type="number"
+              name="year"
+              value={datas.year}
+              readOnly
+            />
+            <input
+              className="input"
+              type="url"
+              name="img"
+              value={datas.img}
+              readOnly
+            />
+            <input
+              className="input"
+              type="url"
+              name="trailer"
+              value={datas.trailer}
+              readOnly
+            />
             <textarea
+              className="input"
               name="details"
-              cols="30"
-              rows="10"
               placeholder="details"
               value={datas.details}
               readOnly
             ></textarea>
-            <button name="button" value={datas.id}>
-              add
-            </button>
+            <div className="grid grid-cols-2 gap-4">
+              <button
+                type="submit"
+                className="bg-green-800 py-2 rounded-md"
+                name="button"
+                value={datas.id}
+              >
+                Approved
+              </button>
+              <button
+                type="button"
+                className="bg-red-800 py-2 rounded-md"
+                name="delete"
+                value={datas.id}
+                onClick={deletingDoc}
+              >
+                Remove
+              </button>
+            </div>
           </form>
         );
       })}

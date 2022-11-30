@@ -12,7 +12,6 @@ const Movie = ({ variant }) => {
   useEffect(() => {
     setDate(convertTimestamp(variant.createdAt.seconds));
   }, []);
-  console.log({ date });
 
   return (
     <motion.div id="movie" className="bg-[#2F2F2F] p-4 rounded-xl duration-200">

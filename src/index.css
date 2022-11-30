@@ -64,3 +64,7 @@ body {
 /* #movie:hover > div:first-child {
   transform: scale(0.95);
 } */
+
+.input {
+  @apply text-white bg-background border-2 border-transparent px-4 py-2 rounded-md outline-none focus:border-secondary duration-100;
+}

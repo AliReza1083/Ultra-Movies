@@ -22,21 +22,63 @@ const Add = () => {
   };
 
   return (
-    <div className="display">
-      <form action="" className="text-black" onSubmit={addingData}>
-        <input type="text" name="name" placeholder="name" required />
-        <input type="text" name="country" placeholder="country" required />
-        <input type="number" name="year" placeholder="year" required />
-        <input type="url" name="img" placeholder="img" required />
-        <input type="url" name="trailer" placeholder="trailer" required />
+    <div className="display h-screen sm:h-auto flex justify-center items-center lg:p-4 lg:py-8">
+      <form
+        action=""
+        className="w-full max-w-[800px] bg-background_2 bg-opacity-[.5] p-4 rounded-xl grid grid-cols-2 gap-4 items-start sm:grid-cols-1"
+        onSubmit={addingData}
+      >
+        <input
+          className="input"
+          type="text"
+          name="name"
+          placeholder="name"
+          autoComplete="off"
+          required
+        />
+        <input
+          className="input"
+          type="text"
+          name="country"
+          placeholder="country"
+          autoComplete="off"
+          required
+        />
+        <input
+          className="input"
+          type="number"
+          name="year"
+          placeholder="year"
+          autoComplete="off"
+          required
+        />
+        <input
+          className="input"
+          type="url"
+          name="img"
+          placeholder="img"
+          autoComplete="off"
+          required
+        />
+        <input
+          className="input"
+          type="url"
+          name="trailer"
+          placeholder="trailer"
+          autoComplete="off"
+          required
+        />
         <textarea
+          className="input col-span-2 sm:col-span-1"
           name="details"
           cols="30"
           rows="10"
           placeholder="details"
           required
         ></textarea>
-        <button>add</button>
+        <button className="bg-primary justify-self-start px-8 py-2 rounded-md text-white active:scale-95 duration-150">
+          Add
+        </button>
       </form>
     </div>
   );
