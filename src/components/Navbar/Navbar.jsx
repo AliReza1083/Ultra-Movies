@@ -1,19 +1,11 @@
+import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { motion } from "framer-motion";
 
-import NavLinks from "./Nav_Links";
+import Middle_Links from "./Middle_Links";
+import Last_Links from "./Last_Links";
 
 // Images
 import { FaImdb } from "react-icons/fa";
-
-// Icons
-import { AiFillHome } from "react-icons/ai";
-import { BiFilm } from "react-icons/bi";
-import { FaTrailer, FaPlus } from "react-icons/fa";
-import { MdDateRange } from "react-icons/md";
-import { BsInfoCircleFill } from "react-icons/bs";
-import { useState } from "react";
-import { GoSignIn } from "react-icons/go";
 
 const Navbar = () => {
   const [isBg, setIsBg] = useState(false);
@@ -38,47 +30,10 @@ const Navbar = () => {
         </Link>
 
         {/* Links */}
-        <div>
-          <NavLinks
-            path={"/"}
-            dataLinks="Return to Home Page"
-            icons={<AiFillHome />}
-          />
-          <NavLinks
-            path={"/movies"}
-            dataLinks="See all the Movies"
-            icons={<BiFilm />}
-          />
-          <NavLinks
-            path={"/date"}
-            dataLinks="See all the Movies based on the year"
-            icons={<MdDateRange />}
-          />
-          <NavLinks
-            path={"/trailers"}
-            dataLinks="See all the Trailers"
-            icons={<FaTrailer />}
-          />
-          <NavLinks
-            path={"/add-movie"}
-            dataLinks="Add your Movie"
-            icons={<FaPlus />}
-          />
-        </div>
+        <Middle_Links />
 
         {/* About */}
-        <div>
-          <NavLinks
-            path={"/about"}
-            dataLinks="about"
-            icons={<BsInfoCircleFill />}
-          />
-          <NavLinks
-            path={"/authentication"}
-            dataLinks="Sign Up/In"
-            icons={<GoSignIn />}
-          />
-        </div>
+        <Last_Links />
       </nav>
       <Outlet />
     </>
