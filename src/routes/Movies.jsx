@@ -33,11 +33,23 @@ const Movies = () => {
       />
 
       {/* Movies */}
-      <div className="grid grid-cols-6 gap-4 justify-center xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        {moviesData.map((movie) => {
-          return <Movie key={movie.id} variant={movie} />;
-        })}
-      </div>
+      {moviesData.length != 0 && (
+        <div className="grid grid-cols-6 gap-4 justify-center xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+          {moviesData.map((movie) => {
+            return <Movie key={movie.id} variant={movie} />;
+          })}
+        </div>
+      )}
+
+      {moviesData.length == 0 && (
+        <div class="load-wrapp">
+          <div class="load-3">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </div>
+      )}
     </motion.div>
   );
 };
