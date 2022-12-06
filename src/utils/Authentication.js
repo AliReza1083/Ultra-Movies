@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
 import { getFirestore, getDoc, doc, setDoc } from "firebase/firestore";
 
 import { firebaseConfig } from "./FirebaseConfig";
@@ -31,3 +37,9 @@ export const addAuthToDB = async (userAuth) => {
     });
   }
 };
+
+export const SignOut = async () => {
+  return signOut(auth);
+};
+
+export const onAuthChanges = (callBack) => onAuthStateChanged(auth, callBack);
